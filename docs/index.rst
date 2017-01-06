@@ -3,8 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to oet-docs's documentation!
+Oracle Expert Tools 使用文档
 ====================================
+
+一些测试内容
+
 
 .. toctree::
    :maxdepth: 2
@@ -12,7 +15,7 @@ Welcome to oet-docs's documentation!
 
 
 
-Indices and tables
+索引
 ==================
 
 * :ref:`genindex`
