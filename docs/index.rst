@@ -6,14 +6,14 @@
 Oracle Expert Tools 使用文档
 ====================================
 
-一些测试内容
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-
+   introduction.rst
+   download.rst
+   install.rst
+   about.rst
 
 索引
 ==================
