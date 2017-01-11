@@ -7,12 +7,15 @@ Oracle Expert Tools 使用文档
 ====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    introduction.rst
    download.rst
+   precheck.rst
    install.rst
+   uninstall.rst
+   getstart.rst
    about.rst
 
 索引
