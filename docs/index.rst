@@ -16,6 +16,7 @@ Oracle Expert Tools 使用文档
    install.rst
    uninstall.rst
    getstart.rst
+   troubleshooting.rst
    about.rst
 
 索引

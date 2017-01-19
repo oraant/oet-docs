@@ -215,8 +215,8 @@
   influxdb process was started [ OK ]
   
   # influx
-  Visit https://enterprise.influxdata.com to register for updates, InfluxDB server
-   management, and monitoring.Connected to http://localhost:8086 version 1.1.1
+  Visit https://enterprise.influxdata.com to register for updates, InfluxDB server management, and monitoring.
+  Connected to http://localhost:8086 version 1.1.1
   InfluxDB shell version: 1.1.1
   > 
   > 
@@ -407,7 +407,7 @@ TODO: 添加用户的python版本本来就够的情况下，应该怎么做
   
   [root@mini-server-a wheel]# pyenv activate oet
   
-  (oet) [root@mini-server-a wheel]# pyenv deactivate  
+  (oet) [root@mini-server-a wheel]# pyenv pip list  
   amqp (1.4.9)
   anyjson (0.3.3)
   billiard (3.3.0.23)
@@ -444,17 +444,20 @@ TODO: 添加用户的python版本本来就够的情况下，应该怎么做
 安装并配置MySQL
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-在MySQL数据库中建立django数据库及相关用户::
+在MySQL数据库中建立django数据库及相关用户，并删除匿名用户::
 
   # mysql -uroot -p123456
   
   mysql> create database oet character set utf8;
   Query OK, 1 row affected (0.00 sec)
   
-  mysql> create user 'django'@'%' identified by 'django';
+  mysql> delete from mysql.user where user='';
+  Query OK, 2 rows affected (0.03 sec)
+
+  mysql> create user 'oet'@'%' identified by 'oet';
   Query OK, 0 rows affected (0.02 sec)
   
-  mysql> grant all on oet.* to django;
+  mysql> grant all on *.* to oet;
   Query OK, 0 rows affected (0.00 sec)
   
   mysql> flush privileges;
@@ -464,10 +467,10 @@ TODO: 添加用户的python版本本来就够的情况下，应该怎么做
 
 使用刚建立的用户，测试是否执行成功::
 
-  # mysql -udjango -pdjango oet
+  # mysql -uoet -poet oet
   mysql> 
 
-TODO: 这里很可能无法登陆，需要修改前面初始化mysql的步骤
+TODO: 这里很可能无法登陆，需要修改前面初始化mysql的步骤，或者删除匿名用户
 
 
 配置并测试Django
@@ -511,6 +514,8 @@ TODO: 这里很可能无法登陆，需要修改前面初始化mysql的步骤
   TODO: 数据里面最起码给一个假的target，否则无法进入主页
   TODO: 数据里要把users中的表中的数据导出来，否则还需要自己
 
+TODO: 如果一个都没有，需要跳到admin来，或者直接跳到报错界面
+TODO: 这一步删掉
 尝试开启django服务::
 
   # ./manage.py runserver 0.0.0.0:8000
