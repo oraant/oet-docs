@@ -549,11 +549,14 @@ TODO: 是否要创建用户，还是把原来的配置文件中的user改为root
 查看supervisor服务开启的状态::
 
   # bash util/checkproc.sh 
-  root         28      2  0 14:23 ?        00:00:00 [sync_supers]
-  root      25079      1  0 17:53 ?        00:00:00 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/supervisord
-  root      25110  25079  0 17:53 ?        00:00:00 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/gunicorn oet.wsgi -b 0.0.0.0:8000
-  root      25120  25110  0 17:53 ?        00:00:00 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/gunicorn oet.wsgi -b 0.0.0.0:8000
-  root      25275  25273  0 17:58 pts/0    00:00:00 egrep --color super|celery|gunicorn
+  root     115452      1  0 Feb05 ?        00:00:17 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/supervisord
+  root     115483 115452  0 Feb05 ?        00:00:14 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/gunicorn oet.wsgi -b 0.0.0.0:8000
+  root     115484 115452  0 Feb05 ?        00:02:55 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/celery worker -A oet --autoscale=99,0 -Ofair --loglevel=INFO --logfile=/oet/etc/../data/log/celery_worker%i.log --statedb=/oet/etc/../data/run/celery.state
+  root     115672 115484  0 Feb05 ?        00:03:39 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/celery worker -A oet --autoscale=99,0 -Ofair --loglevel=INFO --logfile=/oet/etc/../data/log/celery_worker%i.log --statedb=/oet/etc/../data/run/celery.state
+  root     118959 115483  0 13:34 ?        00:00:00 /root/.pyenv/versions/2.7.9/envs/oet/bin/python2.7 /root/.pyenv/versions/oet/bin/gunicorn oet.wsgi -b 0.0.0.0:8000
+
+
+可以看到，当前有几个主要进程。supervisord进程，gunicorn进程，celery进程。如果缺少相关进程，则说明服务没有正常开启。
 
 将nginx的配置文件移动至相应路径下，并重启nginx服务::
   
