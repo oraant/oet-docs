@@ -454,10 +454,16 @@ TODO: 添加用户的python版本本来就够的情况下，应该怎么做
   mysql> delete from mysql.user where user='';
   Query OK, 2 rows affected (0.03 sec)
 
-  mysql> create user 'oet'@'%' identified by 'oet';
+  mysql> create user 'oet'@'localhost' identified by 'oet';
   Query OK, 0 rows affected (0.02 sec)
   
   mysql> grant all on *.* to oet;
+  Query OK, 0 rows affected (0.00 sec)
+  
+  mysql> create user 'django'@'localhost' identified by 'django';
+  Query OK, 0 rows affected (0.02 sec)
+  
+  mysql> grant all on *.* to django;
   Query OK, 0 rows affected (0.00 sec)
   
   mysql> flush privileges;
