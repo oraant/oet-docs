@@ -407,7 +407,7 @@ TODO: 添加用户的python版本本来就够的情况下，应该怎么做
   
   [root@mini-server-a wheel]# pyenv activate oet
   
-  (oet) [root@mini-server-a wheel]# pyenv pip list  
+  (oet) [root@mini-server-a wheel]# pip list  
   amqp (1.4.9)
   anyjson (0.3.3)
   billiard (3.3.0.23)
