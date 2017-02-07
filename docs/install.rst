@@ -460,12 +460,6 @@ TODO: 添加用户的python版本本来就够的情况下，应该怎么做
   mysql> grant all on *.* to oet;
   Query OK, 0 rows affected (0.00 sec)
   
-  mysql> create user 'django'@'localhost' identified by 'django';
-  Query OK, 0 rows affected (0.02 sec)
-  
-  mysql> grant all on *.* to django;
-  Query OK, 0 rows affected (0.00 sec)
-  
   mysql> flush privileges;
   Query OK, 0 rows affected (0.00 sec)
   
