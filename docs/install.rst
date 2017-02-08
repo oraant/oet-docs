@@ -454,7 +454,7 @@ TODO: 添加用户的python版本本来就够的情况下，应该怎么做
   mysql> delete from mysql.user where user='';
   Query OK, 2 rows affected (0.03 sec)
 
-  mysql> create user 'oet'@'localhost' identified by 'oet';
+  mysql> create user 'oet'@'%' identified by 'oet';
   Query OK, 0 rows affected (0.02 sec)
   
   mysql> grant all on *.* to oet;
@@ -531,6 +531,8 @@ TODO: 这一步删掉
 打开浏览器访问项目主页，假设如果您的主机IP地址为 192.168.18.128，则可以访问 http://192.168.18.128:8000 来查看效果。
 
   注意，请务必使用chrome或火狐浏览器，如果您的浏览器为360之类的，请把访问模式从兼容模式改为极速模式（一般来说，按钮在地址栏的最右面。如果您不知道如何修改，可以联系我们，或者在网络上搜索相关的内容）
+
+注意这个阶段不能正常显示图片和静态文件，是正常情况。
 
 如果您成功的打开了主页，则说明django安装成功。
 
