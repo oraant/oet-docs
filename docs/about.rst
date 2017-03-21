@@ -3,10 +3,15 @@
 
 版本
 ---------
+1.0.0
 
 插件版本
 ---------
-mysql
-redis
-influxdb
+mysql::
 
+- 
+
+redis
+TODO: here
+influxdb
+oic

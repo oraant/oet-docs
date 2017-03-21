@@ -152,6 +152,11 @@
   Complete!
   rpms install success
 
+修改Redis的配置文件，查找到databases配置项，将16改为1600，确保数据库号码足够使用::
+
+  # vim /etc/redis.conf
+  databases 1600
+
 开启redis服务，并登陆验证安装是否成功::
 
   # service redis start
